@@ -1,0 +1,31 @@
+/* teacher/components/history-view/history-view.wxss */
+@import "/app.wxss";
+
+.nothing-block {
+  text-align: center;
+}
+
+.history-item {
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 10rpx;
+}
+
+.history-brief {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.brief-header {
+  font-size: 13pt;
+  background-color: #eee;
+  color:#8d8d8d;
+}
+
+.history-brief .title {
+  font-weight: bold;
+}
+
+.history-brief .info{
+  color: #ccc;
+}

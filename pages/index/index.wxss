@@ -1,0 +1,55 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: 17pt;
+}
+
+.section-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.usertype-block {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+  margin-top: 100rpx;
+}
+
+.usertype-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.usertype-img {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 16rpx;
+  border-radius: 50%;
+}
+
+.enter-index {
+   margin-top: 200rpx;
+}
+
+.entry-mark {
+  font-size: 17pt;
+}

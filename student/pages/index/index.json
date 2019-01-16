@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "explore-view": "../../components/explore-view/explore-view",
+    "bookin-view": "../../components/bookin-view/bookin-view",
+    "person-view": "../../components/person-view/person-view"
+  }
+}

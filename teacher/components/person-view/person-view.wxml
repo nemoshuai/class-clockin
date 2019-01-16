@@ -1,0 +1,39 @@
+<!--teacher/components/person-view/person-view.wxml-->
+<view class="person-container">
+  <view class="page-info">
+    <view class="info-detail">
+      <view class="info-detail-item">
+        <text class='userinfo-nickname'>{{userInfo.nickName}}</text> 
+        <image 
+          wx:if="{{JSON.stringify(userinfo) !== '{}'}}" 
+          class="userinfo-avatar info-detail-item-content" 
+          src="{{userInfo.avatarUrl}}" 
+          mode="cover"
+        />
+        <image 
+          wx:else
+          class="userinfo-avatar info-detail-item-content" 
+          src="/assets/images/defaultAvatar.png" 
+          mode="cover"
+        />
+      </view>
+      <view class="info-detail-item">
+        <text>所在地</text>
+        <text class='info-detail-item-content'>{{user.province}}</text>
+      </view>
+      <view></view>
+      <view class="info-detail-item">
+        <text>姓名</text>
+        <text class='info-detail-item-content'>{{user.tea_name}}</text>
+      </view>
+      <view class="info-detail-item">
+        <text>工号</text>
+        <text class='info-detail-item-content'>{{user.tea_id}}</text>
+      </view>
+      <view class="info-detail-item">
+        <text>职称</text>
+        <text class='info-detail-item-content'>{{user.professional_title}}</text>
+      </view>
+    </view>
+  </view>
+</view>

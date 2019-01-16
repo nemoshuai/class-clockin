@@ -1,0 +1,28 @@
+<!--student/pages/course-detail/courseDetail.wxml-->
+<view class="detail-container">
+  <view class="detail-top">
+    <view class="course_title_card bg-theme-color">
+      <text class="course_title theme-color">{{course.course_name}}</text>
+    </view>
+    <view class="course_info">
+      <view class="course_info_item">
+        <text>上课时间</text>
+        <text class="info_item_val">{{course.class_time}}</text>
+      </view>
+      <view class="course_info_item">
+        <text>上课地点</text>
+        <text class="info_item_val">{{course.address}}</text>
+      </view>
+      <view class="course_info_item">
+        <text>任课教师</text>
+        <text class="info_item_val">{{course.tea_name}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!isPicked}}">
+    <button class="course_btn" type="primary" bindtap="chooseCourse">选课</button>
+  </view>
+  <view wx:else>
+    <button class="course_btn" disabled="true">已选</button>
+  </view>
+</view>

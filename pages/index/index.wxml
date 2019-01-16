@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button 
+      wx:if="{{!hasUserInfo && canIUse}}" 
+      open-type="getUserInfo" 
+      bindgetuserinfo="getUserInfo"
+    > 
+    获取头像昵称 
+    </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+
+    <view class="section-register" wx:if="{{!isRegister}}">
+      <view class="usertype-block">
+        <view class="usertype-item">
+        <image 
+          bindtap="studentSignin" 
+          class="usertype-img" 
+          src="/assets/images/xuesheng.png" 
+          mode="cover"
+        />
+        <text class="font-13">你是学生</text>
+        </view>
+        <view class="usertype-item">
+          <image 
+            bindtap="teacherSignin" 
+            class="usertype-img" 
+            src="/assets/images/jiaoshi.png" 
+            mode="cover"
+          />
+          <text class="font-13">你是老师</text>
+        </view>
+      </view>
+    </view>
+
+  <block wx:else>
+    <navigator url="{{usertype=='s' ? '/student/pages/index/index' : '/teacher/pages/index/index'}}" class='enter-index'>
+      <text class='theme-color entry-mark'>进入>>>></text>
+    </navigator>
+  </block>
+</view>

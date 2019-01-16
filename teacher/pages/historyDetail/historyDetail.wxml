@@ -1,0 +1,30 @@
+<!--teacher/pages/historyDetail/historyDetail.wxml-->
+<view class='history-detail-container'>
+  <view class='history-basic'>
+    <view class='theme-color'>{{history.course_name}}</view>
+    <view class='c-999'>{{history.bookin_time}}</view>
+  </view>
+  <view class='history-overview'>
+    <view>学生人数: {{history.total}}</view>
+    <view>出勤人数: {{history.presentCount}}</view>
+    <view>缺勤人数: {{history.absence.length}}</view>
+  </view>
+  <view class='history-absence-block'>
+    <view class='absence-title theme-color'>缺勤名单</view>
+    <view class='absence-header'>
+      <text>学号</text>
+      <text>姓名</text>
+    </view>
+    <view class='absence-content'>
+      <view
+        class='absence-item'
+        wx:for='{{history.absence}}'
+        wx:for-item="absence"  
+        wx:key="index"
+      >
+        <view>{{absence.stu_id}}</view>
+        <view>{{absence.stu_name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

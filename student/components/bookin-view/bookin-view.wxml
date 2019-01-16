@@ -1,0 +1,33 @@
+<!--student/components/bookin-view/bookin-view.wxml-->
+<view class="bookin-section">
+  <view class="picked-section" wx:if="{{pickedCourseList && pickedCourseList.length > 0}}">
+    <view class="picked-list">
+      <view class="picked-list-item {{bgColors[index % bgColors.length]}}" wx:for="{{pickedCourseList}}" wx:for-item="course" bindtap="bookInTap" wx:key="index"  data-id="{{course.course_id}}">
+        <view class="item_name">{{course.course_name}}</view>
+        <view class="item_other">{{course.address}}</view>
+      </view>
+    </view>
+    
+    <!--弹出-->
+    <modal 
+      title="签到"
+      hidden="{{hiddenModal}}"
+      confirm-text="确认"
+      cancel-text="取消"
+      bindconfirm="listenerConfirm"
+      bindcancel="listenerCancel"
+    >
+      <input class="input" 
+        placeholder="请输入考勤码" 
+        placeholder-style="color: #ccc"
+        bindinput="bookInCodeInput"
+        value="{{bookInCode}}" 
+      />
+    </modal>
+  </view>
+  <view wx:else>
+    <view>
+      这里还什么都没有...
+    </view>
+  </view>
+</view>

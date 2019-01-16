@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/signin/signin",
+    "pages/logs/logs"
+  ],
+  "subpackages": [
+    {
+      "root": "student",
+      "pages": [
+        "pages/index/index",
+        "pages/courseDetail/courseDetail"
+      ]
+    },
+    {
+      "root": "teacher",
+      "name": "teacher",
+      "pages": [
+        "pages/index/index",
+        "pages/createCourse/createCourse",
+        "pages/historyDetail/historyDetail"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00C853",
+    "navigationBarTitleText": "考勤助手",
+    "navigationBarTextStyle": "#fff"
+  }
+}

@@ -1,0 +1,10 @@
+/* teacher/pages/createCourse/createCourse.wxss */
+.btn-area {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+}
+
+.btn-area button {
+  width: 40vw;
+}

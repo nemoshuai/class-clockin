@@ -1,0 +1,30 @@
+<!--student/pages/index/index.wxml-->
+<scroll-view class='student-page' scroll-y="true" bindscrolltolower="lower" style="height:{{scrollHeight}}px" scroll-with-animation>
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+              <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+              </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <explore-view courseList="{{courseList}}"></explore-view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <bookin-view 
+              pickedCourseList="{{pickedCourseList}}"
+              user="{{user}}"
+            >
+            </bookin-view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <person-view user="{{user}}" userInfo="{{userInfo}}"></person-view>
+          </view>
+        </view>
+      </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,45 @@
+/* teacher/pages/historyDetail/historyDetail.wxss */
+.history-detail-container {
+  padding: 20rpx 10rpx;
+  background-color: #f8f8f8;
+  height: 100vh;
+}
+
+.history-basic, .history-overview {
+  background-color: #fff;
+  margin-bottom: 20rpx;   
+  padding: 20rpx 40rpx;
+}
+
+.history-overview {
+  font-size: 13pt;
+  color: #999;
+}
+
+.history-absence-block {
+  background-color: #fff;
+  padding-bottom: 20rpx;
+}
+
+.absence-title {
+  font-size: 15pt;
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.absence-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #eee;
+  color: #8d8d8d;
+  padding: 12rpx 40rpx;
+}
+
+.absence-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #ccc;
+}

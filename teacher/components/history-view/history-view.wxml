@@ -1,0 +1,29 @@
+<!--teacher/components/history-view/history-view.wxml-->
+<view class="history-container">
+  <view wx:if="{{historyList.length}}">
+    <view class="history-section">
+      <view class="history-item brief-header">
+        <view class="history-brief">
+          <view>课程</view>
+          <view>考勤时间</view>
+        </view>
+      </view>
+      <view
+        class="history-item"
+        wx:for="{{historyList}}"
+        wx:for-item="history"  
+        wx:key="index"
+        data-historyid="{{history.history_id}}"
+        bindtap='bindHistoryDetailTap'
+      >
+        <view class="history-brief">
+          <view class="title theme-color">{{history.course_name}}</view>
+          <view class="info">{{history.bookin_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="nothing-block c-999">暂无数据</view>
+  </view>
+</view>

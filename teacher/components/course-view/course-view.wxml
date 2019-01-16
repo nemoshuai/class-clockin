@@ -1,0 +1,60 @@
+<!--teacher/components/course-view/course-view.wxml-->
+<view class='course-container'>
+  <view class='page-action'>
+    <button class="bg-theme-color c-fff" bindtap='createdCourse'>+ 创建课程</button>
+  </view>
+  <view class='page-main'>
+    <view class='course-section'>
+      <view class='course-list'>
+        <view 
+          class="course-item" 
+          wx:for="{{createdCourseList}}" 
+          wx:for-item="course"  
+          wx:key="index"
+        >
+          <view class='course-brief'>
+            <text class='title theme-color'>{{course.course_name}}</text>
+            <view class='detail-info'>
+                <text class='c-999'>{{course.address}}</text>
+                <text class='c-999'>{{course.class_time}}</text>
+            </view>
+          </view>
+          <view class='action'>
+            <button 
+              class="bg-theme-color start-btn" 
+              data-id="{{course.course_id}}"
+              bindtap="startBookin"
+            >
+              发起
+            </button>
+            <button 
+              class="theme-color"
+              bindtap="finishBookin"
+              data-id="{{course.course_id}}"
+            >
+              结束
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--弹出-->
+    <modal 
+      title="考勤"
+      hidden="{{hiddenModal}}"
+      confirm-text="确认"
+      cancel-text="取消"
+      bindconfirm="listenerConfirm"
+      bindcancel="listenerCancel"
+    >
+      <input 
+        class="input" 
+        placeholder="请输入考勤码" 
+        placeholder-style="color: #ccc"
+        bindinput="bookInCodeInput"
+        value="{{bookInCode}}" 
+      />
+    </modal>
+  </view>
+</view>

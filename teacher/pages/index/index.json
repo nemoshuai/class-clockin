@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "course-view": "../../components/course-view/course-view",
+    "person-view": "../../components/person-view/person-view",
+    "history-view": "../../components/history-view/history-view"
+  }
+}

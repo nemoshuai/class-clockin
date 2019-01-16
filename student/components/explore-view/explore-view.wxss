@@ -1,0 +1,36 @@
+/* student/components/explore/explore.wxss */
+@import "/app.wxss";
+
+.explore-section {
+  background-color: #ccc;
+}
+
+swiper {
+  height: 300rpx;
+}
+
+.swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.section-main {
+  margin-top: 5rpx;
+  background-color: #fff;
+}
+
+.course-item {
+  background-color:#fff;
+  border-bottom:1px solid #ccc;
+  padding: 10rpx 0 10rpx 10px;
+}
+
+.course-item .title {
+  font-size: 14pt;
+}
+
+.course-item .detail-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}

@@ -1,0 +1,46 @@
+/* teacher/components/course-view/course-view.wxss */
+@import "/app.wxss";
+
+.page-action button {
+  border-radius: 0;
+}
+
+.page-main {
+  margin: 0 8rpx;
+  background-color: #b2b2b2;
+}
+
+.course-item {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 10pt;
+}
+
+/* .action {
+  display: flex;
+  flex-direction: row;
+} */
+
+.action button {
+  font-size: 10pt;
+  border: none;
+  border-radius: 0;
+}
+
+.start-btn {
+  color: #fff;
+}

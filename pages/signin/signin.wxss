@@ -1,0 +1,33 @@
+/* pages/signin/signin.wxss */
+@import "/app.wxss";
+.page-signin {
+  /* background-color: #ccc; */
+  height: 100vh;
+}
+
+.page-form {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+}
+
+.form-header {
+  font-size: 17pt;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.page-section {
+  width: 100%;
+  background-color: #fff;
+}
+
+.btn-area {
+  margin-top: 50rpx;
+  display: flex;
+}
+
+

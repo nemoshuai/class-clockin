@@ -1,0 +1,32 @@
+/* teacher/components/person-view/person-view.wxss */
+@import "/app.wxss";
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+}
+
+.userinfo-nickname {
+  /* color: whitesmoke; */
+}
+
+.info-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.info-detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  font-size: 13pt;
+  padding: 20rpx 0;
+}
+
+.info-detail-item-content {
+  float: right;
+  color: #b2b2b2;
+}

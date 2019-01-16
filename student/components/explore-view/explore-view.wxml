@@ -1,0 +1,38 @@
+<!--student/components/explore/explore.wxml-->
+<view class='explore-section'>
+  <view class='wrapper'>
+    <swiper 
+      indicator-dots="{{indicatorDots}}" 
+      autoplay="{{autoplay}}" 
+      interval="{{interval}}" 
+      duration="{{duration}}"
+    >
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item class="swiper-item">
+            <image src="{{item}}" />
+          </swiper-item>
+        </block>
+    </swiper>
+  </view>
+  <view class='section-main'>
+    <view class='course-section'>
+      <view class='course-list'>
+        <view 
+          class="course-item" 
+          wx:for="{{courseList}}" 
+          wx:for-item="course" 
+          bindtap='bindDetail' 
+          wx:key="index" 
+          data-id="{{course.course_id}}"
+        >
+          <text class='title theme-color'>{{course.course_name}}</text>
+          <view class='detail-info c-999'>
+            <text>上课地点: {{course.address}}</text>
+            <text>上课时间: {{course.class_time}}</text>
+            <text>任课教师: {{course.tea_name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

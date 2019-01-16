@@ -1,0 +1,34 @@
+/* student/components/bookin-view/bookin-view.wxss */
+@import "/app.wxss";
+
+.picked-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picked-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 33.33vw;
+  height: 25vh;
+  text-align: center;
+  padding: 10% 0;
+}
+
+.item_name {
+  font-size: 12pt;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 2rpx;
+}
+
+.item_other {
+  font-size: 10pt;
+  color: #e2e2e2;
+}
+
+.bg-1 { background-color: #F4A460; }
+.bg-2 { background-color: #FA8072; }
+.bg-3 { background-color: #00BFFF; }
+.bg-4 { background-color: #9370DB; }

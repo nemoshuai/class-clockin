@@ -1,0 +1,41 @@
+<!--student/components/person-view/person-view.wxml-->
+<view>
+  <view class='pageTop bg-theme-color'>
+    <view class="userinfo">
+        <image 
+          wx:if="{{userInfo}}" 
+          class="userinfo-avatar" 
+          src="{{userInfo.avatarUrl}}" 
+          mode="cover"
+        />
+        <image 
+          wx:else
+          class="userinfo-avatar" 
+          src="/assets/images/defaultAvatar.png" 
+          mode="cover"
+        />
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text>{{JSON.stringfy({a:1})}}</text>
+    </view>
+  </view>
+  <view class="page-info">
+    <view class='info-detail'>
+      <text class='info-detail-item'>
+        <text>学号</text> 
+        <text class='info-detail-item-content'>{{user.stu_id}}</text>
+      </text>
+      <text class='info-detail-item'>
+        <text>姓名</text>
+        <text class='info-detail-item-content'>{{user.stu_name}}</text>
+      </text>
+      <text class='info-detail-item'>
+        <text>年级</text>
+        <text class='info-detail-item-content'>{{user.grade}}</text>
+      </text>
+      <text class='info-detail-item'>
+        <text>专业班级</text>
+        <text class='info-detail-item-content'>{{user.profession_class}}</text>
+      </text>
+    </view>
+  </view>
+</view>
