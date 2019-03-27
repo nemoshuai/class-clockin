@@ -16,18 +16,19 @@
   color: #999;
 }
 
-.history-absence-block {
+.history-list-block {
   background-color: #fff;
   padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
 }
 
-.absence-title {
+.list-title {
   font-size: 15pt;
   text-align: center;
   padding: 10rpx 0;
 }
 
-.absence-header {
+.list-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,7 +37,7 @@
   padding: 12rpx 40rpx;
 }
 
-.absence-item {
+.list-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -184,15 +184,16 @@ Page({
   formSubmit: function(e) {
     const that = this;
     if (!this.WxValidate.checkForm(e.detail.value)) {
-      const error = this.WxValidate.errorList[0]
-      this.showModal(error)
-      return false
+      const error = this.WxValidate.errorList[0];
+      this.showModal(error);
+      return false;
     } else {
       if (that.data.usertype == 's') {
         that.setData({
           student: { ...e.detail.value }
         });
         console.log(that.data.student);
+        that.formatData();
         wx.request({
           url: 'http://localhost:3000/api/register',
           method: 'post',
@@ -224,7 +225,8 @@ Page({
         that.setData({
           teacher: { ...e.detail.value, ...app.useruniq }
         });
-        console.log(that.data.teacher)
+        console.log(that.data.teacher);
+        that.formatData();
         wx.request({
           url: 'http://localhost:3000/api/register',
           method: 'post',
@@ -259,5 +261,27 @@ Page({
       student: null,
       teacher: null
     });
+  },
+
+
+  // 格式化用户表单数据
+  formatData: function() {
+    const that = this;
+    if (that.data.student && that.data.usertype === 's') {
+      let tempRes = {...that.data.student};
+      tempRes.stu_id = parseInt(tempRes.stu_id);
+      tempRes.grade = parseInt(tempRes.grade);
+      that.setData({
+        student: tempRes
+      });
+      console.log("format student:", that.data.student);
+    } else if (that.data.teacher) {
+      let tempRes = { ...that.data.teacher };
+      tempRes.tea_id = parseInt(tempRes.tea_id);
+      that.setData({
+        teacher: tempRes
+      });
+      console.log("format teacher:", that.data.teacher);
+    } 
   }
 })

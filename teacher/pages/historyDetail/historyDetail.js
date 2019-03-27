@@ -127,9 +127,23 @@ Page({
    * 格式化历史记录
    */
   formatHistoryRecord: function(historyRecord) {
+    // 老师的考勤位置
+    const tLatitude = historyRecord.latitude;
+    const tLongitude = historyRecord.longitude;
+    console.log("考勤位置", tLatitude, tLongitude);
     const presentCount = historyRecord.total - historyRecord.absence.length;
-    const tempRecord = {...historyRecord, presentCount};
+    let tempRecord = {...historyRecord, presentCount};
     tempRecord.bookin_time = util.formatDate(tempRecord.bookin_time);
+    // 筛选出位置可疑的（超过50m)的同学
+    let dubious = [];
+    historyRecord.present.forEach(item => {
+      let distance = util.getDistance(tLatitude, tLongitude, item.latitude, item.longitude);
+      console.log("距离:", distance);
+      if (distance >= 50) {
+        dubious.push({ ...item, distance});
+      }
+    });
+    tempRecord = { ...tempRecord, dubious };
     console.log(tempRecord);
     return tempRecord;
   }

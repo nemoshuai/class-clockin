@@ -9,21 +9,43 @@
     <view>出勤人数: {{history.presentCount}}</view>
     <view>缺勤人数: {{history.absence.length}}</view>
   </view>
-  <view class='history-absence-block'>
-    <view class='absence-title theme-color'>缺勤名单</view>
-    <view class='absence-header'>
+  <view class='history-list-block'>
+    <view class='list-title theme-color'>缺勤名单</view>
+    <view class='list-header'>
       <text>学号</text>
       <text>姓名</text>
     </view>
-    <view class='absence-content'>
+    <view class='list-content'>
       <view
-        class='absence-item'
+        class='list-item'
         wx:for='{{history.absence}}'
         wx:for-item="absence"  
         wx:key="index"
       >
         <view>{{absence.stu_id}}</view>
         <view>{{absence.stu_name}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 位置可疑 -->
+    <view class='history-list-block'>
+    <view class='list-title theme-color'>位置可疑</view>
+    <view class='list-header'>
+      <text>学号</text>
+      <text>姓名</text>
+      <text>距离(m)</text>
+    </view>
+    <view class='list-content'>
+      <view
+        class='list-item'
+        wx:for='{{history.dubious}}'
+        wx:for-item="dubious"  
+        wx:key="index"
+      >
+        <view>{{dubious.stu_id}}</view>
+        <view>{{dubious.stu_name}}</view>
+        <view>{{dubious.distance}}</view>
       </view>
     </view>
   </view>

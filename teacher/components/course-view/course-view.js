@@ -55,49 +55,56 @@ Component({
       const bookin_time = date.getTime();
       console.log('发起考勤', bookin_time);
       console.log(util.formatDate(bookin_time));
-      const attendance = {
-        course_id: that.data.bookInCourseId,
-        tea_id: app.globalData.user.tea_id,
-        bookin_time: bookin_time,
-        bookin_code: that.data.bookInCode,
-      }
-      console.log("考勤信息", attendance);
-      wx.request({
-        url: 'http://localhost:3000/api/attendance',
-        method: 'post',
-        data: {
-          attendance: attendance
-        },
-        success: function (res) {
-          if (res.statusCode = 200 && res.data) {
-            console.log('发起考勤成功', res.data);
-            wx.showToast({
-              title: '考勤启动',
-              icon: 'none',
-              duration: 2000
+     // 位置信息获取
+      util.getUserLocation().then(result => {
+        console.log("result", result.latitude, result.longitude);
+
+        const attendance = {
+          course_id: that.data.bookInCourseId,
+          tea_id: app.globalData.user.tea_id,
+          bookin_time: bookin_time,
+          bookin_code: that.data.bookInCode,
+          latitude: result.latitude,
+          longitude: result.longitude,
+        }
+        console.log("考勤信息", attendance);
+        wx.request({
+          url: 'http://localhost:3000/api/attendance',
+          method: 'post',
+          data: {
+            attendance: attendance
+          },
+          success: function (res) {
+            if (res.statusCode = 200 && res.data) {
+              console.log('发起考勤成功', res.data);
+              wx.showToast({
+                title: '考勤启动',
+                icon: 'none',
+                duration: 2000
+              });
+            } else {
+              wx.showToast({
+                title: '发起失败',
+                icon: 'none',
+                duration: 2000
+              });
+            }
+            that.setData({
+              hiddenModal: true,
             });
-          } else {
+          },
+          fail: function (res) {
             wx.showToast({
               title: '发起失败',
               icon: 'none',
               duration: 2000
             });
+            console.log('发起失败', that.data.bookInCode);
+            that.setData({
+              hiddenModal: true,
+            });
           }
-          that.setData({
-            hiddenModal: true,
-          });
-        },
-        fail: function (res) {
-          wx.showToast({
-            title: '发起失败',
-            icon: 'none',
-            duration: 2000
-          });
-          console.log('发起失败', that.data.bookInCode);
-          that.setData({
-            hiddenModal: true,
-          });
-        }
+        });
       });
     },
 

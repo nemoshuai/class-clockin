@@ -109,37 +109,42 @@ Component({
       let bookin_time = new Date();
       console.log('签到时间为: ', bookin_time);
       // 签到
-      wx.request({
-        url: 'http://localhost:3000/api/attendance/student',
-        method: 'post',
-        data: {
+      util.getUserLocation().then(result => {
+        console.log("学生当前位置", result.latitude, result.longitude);
+        wx.request({
+          url: 'http://localhost:3000/api/attendance/student',
+          method: 'post',
+          data: {
             stu_id: this.data.user.stu_id,
             course_id: this.data.bookInCourseId,
-            bookin_code: this.data.bookInCode
-        },
-        success: function(res) {
-          if(res.data.success) {
-            console.log('签到成功', res.data);
-            wx.showToast({
-              title: '签到成功',
-              icon: 'none',
-              duration: 2000
-            });
-          } else {
+            bookin_code: this.data.bookInCode,
+            latitude: result.latitude,
+            longitude: result.longitude,
+          },
+          success: function (res) {
+            if (res.data.success) {
+              console.log('签到成功', res.data);
+              wx.showToast({
+                title: '签到成功',
+                icon: 'none',
+                duration: 2000
+              });
+            } else {
+              wx.showToast({
+                title: '签到失败',
+                icon: 'none',
+                duration: 2000
+              });
+            }
+          },
+          fail: function (res) {
             wx.showToast({
               title: '签到失败',
               icon: 'none',
               duration: 2000
             });
           }
-        },
-        fail: function(res) {
-          wx.showToast({
-            title: '签到失败',
-            icon: 'none',
-            duration: 2000
-          });
-        }
+        });
       });
       this.setData({
         hiddenModal: true
